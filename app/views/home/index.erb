@@ -1,1 +1,61 @@
-<h2>Welcome!</h2>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-default">
+      <form class="discover-form" role="form">
+        <div class="col-sm-4 mbs">
+          <input type="text" class="form-control" placeholder="Search for offer..." />
+        </div>
+        <div class="col-sm-3 mbs">
+          <input type="text" class="form-control" placeholder="Location" />
+        </div>
+        <div class="col-sm-3 mbs">
+          <select class="form-control">
+            <option>Category</option>
+            <option>Tech</option>
+            <option>Entertainment</option>
+            <option>Sports</option>
+          </select>
+        </div>
+        <div class="col-sm-2 mbs">
+          <button class="btn btn-default scale">Search</button>
+        </div>
+      </form>
+
+      <div class="panel-body">
+        <div class="row">
+          <table class="table table-condensed table-hover">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th class="hidden-xs center"><i class="fa fa-image"></i></th>
+                <th><i class="fa fa-users"></i></th>
+                <th><i class="fa fa-user"></i></th>
+              </tr>
+            </thead>
+
+            <% @users.each do |user| %>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="media">
+                      <a class="pull-left" href="#">
+                        <img class="media-object thumb-sm" src="<%= user.profile_picture %>" alt="...">
+                      </a>
+                      <div class="media-body">
+                        <p class="bold text-ellipsis"><%= user.username %></p>
+                        <p class="text-ellipsis"><%= user.full_name %></p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="hidden-xs"><p><%= user.media %></p></td>
+                  <td><p><%= user.follows %></p></td>
+                  <td><p><%= user.followed_by %></p></td>
+                </tr><!-- username -->
+              </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

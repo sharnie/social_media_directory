@@ -3,13 +3,17 @@ source 'http://rubygems.org'
 gem 'sinatra'
 gem 'activerecord', require: 'active_record'
 gem 'sinatra-activerecord', require: 'sinatra/activerecord'
-# gem 'pg'
-gem 'sqlite3'
+gem 'instagram'
 gem 'rake'
 gem 'require_all'
-gem 'shotgun'
-gem 'pry'
 
-group :test do
+group :production do
+  gem 'pg'
+end
+
+group :test, :development do
+  gem 'shotgun'
+  gem 'sqlite3'
+  gem 'pry'
   gem 'rspec'
 end
